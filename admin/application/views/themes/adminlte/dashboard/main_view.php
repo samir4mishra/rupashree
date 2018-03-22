@@ -5,11 +5,10 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3><?php echo $total_courses; ?></h3>
-
-              <p>No. Of Courses</p>
+              <p>Registered </p>
             </div>
             <div class="icon">
-              <i class="ion ion-ios-bookmarks"></i>
+              <i class="fa fa-registered" aria-hidden="true"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -19,9 +18,9 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3><?php echo $enguiry_count; ?></h3>
+              <h3>0</h3>
 
-              <p>No. Of Enquiry</p>
+              <p>Physical Verification </p>
             </div>
             <div class="icon">
               <i class="ion ion-android-bulb"></i>
@@ -34,9 +33,9 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3><?php echo $teainee_count; ?></h3>
+              <h3>0</h3>
 
-              <p>Registered Trainee</p>
+              <p>Forwarded </p>
             </div>
             <div class="icon">
               <i class="ion ion-android-contacts"></i>
@@ -49,9 +48,9 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>5</h3>
+              <h3>0</h3>
 
-              <p>Running Batches</p>
+              <p>Sanctioned</p>
             </div>
             <div class="icon">
               <i class="ion ion-android-bookmark"></i>

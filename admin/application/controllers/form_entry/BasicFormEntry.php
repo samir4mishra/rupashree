@@ -8,6 +8,7 @@ class BasicFormEntry extends NIC_Controller {
 		$this->load->model('common/master_model');
 		//print_r($this->master_model->get_gender());
 	}
+	
 	public function index(){
 		
 		//Data
@@ -19,39 +20,34 @@ class BasicFormEntry extends NIC_Controller {
 		$data['cur_districts'] = $this->master_model->get_cur_district_query();
 		$data['bank_names'] = $this->master_model->get_bank_query();
 		
-		
 		//Validation
-		
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('frm_serial_number', 'Form Serial no', 'required');
-		$this->form_validation->set_rules('app_first_name', 'First Name', 'callback_alpha');
-		$this->form_validation->set_rules('app_last_name', 'Last Name', 'callback_alpha');
-		$this->form_validation->set_rules('app_mother_f_name', 'Mother First Name', 'callback_alpha');
-		$this->form_validation->set_rules('app_mother_l_name', 'Mother Last Name', 'callback_alpha');
-		$this->form_validation->set_rules('app_father_f_name', 'Father First Name', 'callback_alpha');
-		$this->form_validation->set_rules('app_father_l_name', 'Father Last Name', 'callback_alpha');
-		//$this->form_validation->set_rules('applicant_relation_with_guardian', 'Relationship', 'required|is_natural');
-		$this->form_validation->set_rules('datepicker_dob_applicant', 'Date of Birth', 'required');
-		$this->form_validation->set_rules('datepicker_pdom_applicant', 'Proposed Date of Marriage', 'required');
-		$this->form_validation->set_rules('applicant_mobile','Mobile No','callback_valid_phone_number_or_empty');
-		$this->form_validation->set_rules('applicant_e_mail_id', 'Email', 'valid_email');
-		//$this->form_validation->set_rules('applicant_e_mail_id', 'Email', 'callback_email_check');
-		$this->form_validation->set_rules('applicant_family_income', 'Family Income', 'callback_family_income');
-		$this->form_validation->set_rules('applicant_education', 'Highest Education Level', 'required|is_natural');
-		$this->form_validation->set_rules('applicant_caste', 'Cast', 'required|is_natural');
-		$this->form_validation->set_rules('applicant_religion', 'Religion', 'required|is_natural');
-		$this->form_validation->set_rules('applicant_village', 'Village', 'callback_alpha_numeric_spaces');
-		$this->form_validation->set_rules('applicant_house_number', 'House Number', 'callback_alpha_numeric_spaces');
-		$this->form_validation->set_rules('applicant_street_name', 'Street Name', 'callback_alpha_numeric_spaces');
-		$this->form_validation->set_rules('applicant_post_office', 'Post Office', 'callback_alpha');
-		$this->form_validation->set_rules('applicant_police_station', 'Police Station', 'callback_alpha');
-		$this->form_validation->set_rules('applicant_grmp_ward', 'Gram Panchayat/Ward', 'callback_alpha');
-		$this->form_validation->set_rules('applicant_district', 'District', 'required|is_natural');
-		$this->form_validation->set_rules('applicant_bmc', 'Block', 'required|is_natural');
-		$this->form_validation->set_rules('applicant_pin_code', 'PIN', 'callback_pin_val');
-		
-		if((int)$this->input->post('perm_curr_add_same') != 1)
-		{
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('frm_serial_number', 'Form Serial no', 'required');
+			$this->form_validation->set_rules('app_first_name', 'First Name', 'callback_alpha');
+			$this->form_validation->set_rules('app_last_name', 'Last Name', 'callback_alpha');
+			$this->form_validation->set_rules('app_mother_f_name', 'Mother First Name', 'callback_alpha');
+			$this->form_validation->set_rules('app_mother_l_name', 'Mother Last Name', 'callback_alpha');
+			$this->form_validation->set_rules('app_father_f_name', 'Father First Name', 'callback_alpha');
+			$this->form_validation->set_rules('app_father_l_name', 'Father Last Name', 'callback_alpha');
+			//$this->form_validation->set_rules('applicant_relation_with_guardian', 'Relationship', 'required|is_natural');
+			$this->form_validation->set_rules('datepicker_dob_applicant', 'Date of Birth', 'required');
+			$this->form_validation->set_rules('datepicker_pdom_applicant', 'Proposed Date of Marriage', 'required');
+			$this->form_validation->set_rules('applicant_mobile','Mobile No','callback_valid_phone_number_or_empty');
+			$this->form_validation->set_rules('applicant_e_mail_id', 'Email', 'valid_email');
+			//$this->form_validation->set_rules('applicant_e_mail_id', 'Email', 'callback_email_check');
+			$this->form_validation->set_rules('applicant_family_income', 'Family Income', 'callback_family_income');
+			$this->form_validation->set_rules('applicant_education', 'Highest Education Level', 'required|is_natural');
+			$this->form_validation->set_rules('applicant_caste', 'Cast', 'required|is_natural');
+			$this->form_validation->set_rules('applicant_religion', 'Religion', 'required|is_natural');
+			$this->form_validation->set_rules('applicant_village', 'Village', 'callback_alpha_numeric_spaces');
+			$this->form_validation->set_rules('applicant_house_number', 'House Number', 'callback_alpha_numeric_spaces');
+			$this->form_validation->set_rules('applicant_street_name', 'Street Name', 'callback_alpha_numeric_spaces');
+			$this->form_validation->set_rules('applicant_post_office', 'Post Office', 'callback_alpha');
+			$this->form_validation->set_rules('applicant_police_station', 'Police Station', 'callback_alpha');
+			$this->form_validation->set_rules('applicant_grmp_ward', 'Gram Panchayat/Ward', 'callback_alpha');
+			$this->form_validation->set_rules('applicant_district', 'District', 'required|is_natural');
+			$this->form_validation->set_rules('applicant_bmc', 'Block', 'required|is_natural');
+			$this->form_validation->set_rules('applicant_pin_code', 'PIN', 'callback_pin_val');
 			$this->form_validation->set_rules('c_applicant_village', 'Village', 'callback_alpha_numeric_spaces');
 			$this->form_validation->set_rules('c_applicant_house_number', 'House Number', 'callback_alpha_numeric_spaces');
 			$this->form_validation->set_rules('c_applicant_street_name', 'Street Name', 'callback_alpha_numeric_spaces');
@@ -61,13 +57,11 @@ class BasicFormEntry extends NIC_Controller {
 			$this->form_validation->set_rules('c_applicant_district', 'District', 'required');
 			$this->form_validation->set_rules('c_applicant_bmc', 'Block', 'required');
 			$this->form_validation->set_rules('c_applicant_pin_code', 'PIN', 'callback_pin_val');
-		}
-		
-		$this->form_validation->set_rules('applicant_bank_name', 'Bank Name', 'required');
-		$this->form_validation->set_rules('applicant_account_no', 'Account Number', 'callback_acc_val');
-		$this->form_validation->set_rules('applicant_bank_branch_name', 'Branch Name', 'callback_alpha');
-		$this->form_validation->set_rules('applicant_ifs_branch_code', 'IFS Code', 'callback_alpha_numeric_spaces');
-		$this->form_validation->set_rules('applicant_bank_branch_address', 'Branch Address', 'callback_alpha');
+			$this->form_validation->set_rules('applicant_bank_name', 'Bank Name', 'required');
+			$this->form_validation->set_rules('applicant_account_no', 'Account Number', 'callback_acc_val');
+			$this->form_validation->set_rules('applicant_bank_branch_name', 'Branch Name', 'callback_alpha');
+			$this->form_validation->set_rules('applicant_ifs_branch_code', 'IFS Code', 'callback_alpha_numeric_spaces');
+			$this->form_validation->set_rules('applicant_bank_branch_address', 'Branch Address', 'callback_alpha');
 			
 		
 		if ($this->form_validation->run() == FALSE) {
@@ -77,8 +71,11 @@ class BasicFormEntry extends NIC_Controller {
 		
 		} else {
 			
+			
 					$year = $this->input->post('applicant_registration_year');
              		$form_serial_no = $this->input->post('frm_serial_number');
+					$date = date("Y-m-d");
+					//$entered_by = substr($applicant_id,0,6);
        
               		/*-------------- Post Applicant Name ------------------------------------ */
 					$app_first_name = $this->input->post('app_first_name') == '' || $this->input->post('app_first_name') == 'First Name' ? '' : strtoupper($this->input->post('app_first_name'));
@@ -99,7 +96,13 @@ class BasicFormEntry extends NIC_Controller {
 
 					/*-------------- Relationship With Guardian ------------------------------*/
 					$relation_with_gur = $this->input->post('applicant_relation_with_guardian');
-
+					
+					/*--------------Current Date-----------------------------------------*/
+					
+					//$dateofapplication = date("Y-m-d");
+					//$dateofapp =  explode('-', $dateofapplication);
+					//$currentdate= $date['2']."-".$date['1']."-".$date['0'];
+					
 					/*-------------- Date Of Birth  ------------------------------*/
 					$dateofbirth = $this->input->post('datepicker_dob_applicant');
 					$date=explode('-', $dateofbirth);
@@ -155,65 +158,33 @@ class BasicFormEntry extends NIC_Controller {
 					/*--------------  PIN  ----------------*/
 					$applicant_pin_code = $this->input->post('applicant_pin_code');
 
-					
-					if($this->input->post('perm_curr_add_same') != 1)
-					{
-						/*-------------- Current Village ----------------*/
-						$cur_applicant_village = strtoupper($this->input->post('c_applicant_village'));
-	
-						/*-------------- Current House Number ----------------*/
-						$cur_applicant_house_no = strtoupper($this->input->post('c_applicant_house_number'));
-	
-						/*-------------- Current street name ----------------*/
-						$cur_applicant_street_name = strtoupper($this->input->post('c_applicant_street_name'));
-	
-						/*-------------- Current Post Office ----------------*/
-						$cur_applicant_post_office = strtoupper($this->input->post('c_applicant_post_office'));
-	
-						/*-------------- Current Police Station ----------------*/
-						$cur_applicant_police_station = strtoupper($this->input->post('c_applicant_police_station'));
-	
-						/*--------------  Current Gram Panchayat/Ward ----------------*/
-						$cur_applicant_grmp_ward = strtoupper($this->input->post('c_applicant_grmp_ward'));
-	
-						/*--------------  Current District ----------------*/
-						$cur_applicant_district = $this->input->post('c_applicant_district');
-	
-						/*--------------  Current Block/Municipality/Corporation  ----------------*/
-						$cur_applicant_bmc = $this->input->post('c_applicant_bmc');
-	
-						/*--------------  Current PIN  ----------------*/
-						$cur_applicant_pin_code = $this->input->post('c_applicant_pin_code');
-					}
-					else
-					{
-						/*-------------- Current Village ----------------*/
-						$cur_applicant_village = strtoupper($this->input->post('applicant_village'));
-	
-						/*-------------- Current House Number ----------------*/
-						$cur_applicant_house_no = strtoupper($this->input->post('applicant_house_number'));
-	
-						/*-------------- Current street name ----------------*/
-						$cur_applicant_street_name = strtoupper($this->input->post('applicant_street_name'));
-	
-						/*-------------- Current Post Office ----------------*/
-						$cur_applicant_post_office = strtoupper($this->input->post('applicant_post_office'));
-	
-						/*-------------- Current Police Station ----------------*/
-						$cur_applicant_police_station = strtoupper($this->input->post('applicant_police_station'));
-	
-						/*--------------  Current Gram Panchayat/Ward ----------------*/
-						$cur_applicant_grmp_ward = strtoupper($this->input->post('applicant_grmp_ward'));
-	
-						/*--------------  Current District ----------------*/
-						$cur_applicant_district = $this->input->post('applicant_district');
-	
-						/*--------------  Current Block/Municipality/Corporation  ----------------*/
-						$cur_applicant_bmc = $this->input->post('applicant_bmc');
-	
-						/*--------------  Current PIN  ----------------*/
-						$cur_applicant_pin_code = $this->input->post('applicant_pin_code');
-					}
+
+					/*-------------- Current Village ----------------*/
+					$cur_applicant_village = strtoupper($this->input->post('c_applicant_village'));
+
+					/*-------------- Current House Number ----------------*/
+					$cur_applicant_house_no = strtoupper($this->input->post('c_applicant_house_number'));
+
+					/*-------------- Current street name ----------------*/
+					$cur_applicant_street_name = strtoupper($this->input->post('c_applicant_street_name'));
+
+					/*-------------- Current Post Office ----------------*/
+					$cur_applicant_post_office = strtoupper($this->input->post('c_applicant_post_office'));
+
+					/*-------------- Current Police Station ----------------*/
+					$cur_applicant_police_station = strtoupper($this->input->post('c_applicant_police_station'));
+
+					/*--------------  Current Gram Panchayat/Ward ----------------*/
+					$cur_applicant_grmp_ward = strtoupper($this->input->post('c_applicant_grmp_ward'));
+
+					/*--------------  Current District ----------------*/
+					$cur_applicant_district = $this->input->post('c_applicant_district');
+
+					/*--------------  Current Block/Municipality/Corporation  ----------------*/
+					$cur_applicant_bmc = $this->input->post('c_applicant_bmc');
+
+					/*--------------  Current PIN  ----------------*/
+					$cur_applicant_pin_code = $this->input->post('c_applicant_pin_code');
 
 					/*--------------  Bank Name  ----------------*/
 					$bank_name = strtoupper($this->input->post('applicant_bank_name'));
@@ -241,7 +212,6 @@ class BasicFormEntry extends NIC_Controller {
 							{
 								$code = '191104'.substr($year,2,2);
 								$code = $code."0000001";
-								$entered_by = substr($code,0,5);
 							}
 							else
 							{
@@ -249,15 +219,14 @@ class BasicFormEntry extends NIC_Controller {
 								$cd = intval(substr($code,6));
 								$cd=$cd+1;
 								$code='191104'.$cd;
-								$entered_by = substr($code,0,5);
 							}
-							
+							$entered_by = substr($code,0,6);
 						/*----------------------end of Generation of unique applicant id --------------*/
 
 
 
 						/*------- Insert Operation on rp_applicant_basic_details------------*/
-
+							
 		   					$partial_data=array(
 		                		'applicant_id' => $code,
 		                		'applicant_fname' => $app_first_name,
@@ -286,10 +255,10 @@ class BasicFormEntry extends NIC_Controller {
 								'applicant_data_entry_time' => 'now()',
 								'applicant_data_entry_ip' => $_SERVER['REMOTE_ADDR'],
 								'applicant_data_entry_by' => $entered_by
+								
 		                	);
 			
 			//print_r($partial_data);
-			//exit;
 			$this->load->model('form_entry/BasicFormEntry_model');
 			$insert_id = $this->BasicFormEntry_model->basic_registration($partial_data);
 			
@@ -319,8 +288,7 @@ class BasicFormEntry extends NIC_Controller {
 								'applicant_permanent_state' => '19',
 								'applicant_permanent_pin' => $applicant_pin_code
 							);
-					//print_r($full_data);
-					//exit;
+
 					//$this->BasicFormEntry_model->basic_address_registration($full_data);
 				
 					$this->load->model('form_entry/BasicFormEntry_model');
@@ -352,6 +320,14 @@ class BasicFormEntry extends NIC_Controller {
 						$data1['cur_districts'] = $this->master_model->get_cur_district_query();
 						$data1['bank_names'] = $this->master_model->get_bank_query();
 						
+						$status_data=array(
+								'applicant_id' => $code,
+								'current_status' => '1'
+							);
+							
+						$this->load->model('common/status_model');
+						$this->status_model->insert_app_status_query($status_data);
+						
 						$data1['success_code'] = 1;
 						$data1['success_message'] = "Applicant Details Successfully Saved ";
 						
@@ -374,7 +350,6 @@ class BasicFormEntry extends NIC_Controller {
 						$this->load->view($this->config->item('theme') . 'form_entry/rp_basic_form_entry_applicant_view',$data1);	
 
 					}
-					
 						
 					}
 					
@@ -407,6 +382,7 @@ class BasicFormEntry extends NIC_Controller {
 		
 	}
 	
+	/*--------------------------------Function for Save Groom Details---------------------------------------*/
 	
 	public function save_groom_details()
 	{
@@ -591,6 +567,10 @@ class BasicFormEntry extends NIC_Controller {
 						
 						if($insert_groom_full)
 						{
+							
+							$this->load->model('common/status_model');
+							$this->status_model->update_groom_status_query($applicant_id);
+							
 							$data['success_code'] = 1;
 							$data['success_message'] = "Groom Details Successfully Saved "; 
 							$this->load->view($this->config->item('theme') . 'form_entry/rp_basic_form_entry_applicant_photo_upload_view',$data);
@@ -694,6 +674,9 @@ class BasicFormEntry extends NIC_Controller {
 						
 						if($insert_photo)
 						{
+							$this->load->model('common/status_model');
+							$this->status_model->update_app_photo_status_query($applicant_id);
+							
 							$data['success_code'] = 1;
 							$data['success_message'] = "Applicant Photo Successfully Saved "; 
 							$this->load->view($this->config->item('theme') . 'form_entry/rp_basic_form_entry_groom_photo_upload_view',$data);
@@ -789,6 +772,8 @@ class BasicFormEntry extends NIC_Controller {
 						
 						if($insert_groom_photo)
 						{
+							$this->load->model('common/status_model');
+							$this->status_model->update_groom_photo_status_query($applicant_id);
 							
 							$data['success_code'] = 1;
 							$data['success_message'] = "Groom Photo Successfully Saved "; 
@@ -874,6 +859,10 @@ class BasicFormEntry extends NIC_Controller {
 						if($insert_doc)
 						{ 
 							$data['records'] = $this->master_model->selectValues();
+							
+							$this->load->model('common/status_model');
+							$this->status_model->update_declaration_photo_status_query($applicant_id);
+							
 							$data['success_code'] = 1;
 							$data['success_message'] = "Declaration Page Successfully Saved "; 
 							$this->load->view($this->config->item('theme') . 'form_entry/rp_basic_form_entry_declaration_upload_view',$data);
@@ -1029,7 +1018,6 @@ class BasicFormEntry extends NIC_Controller {
 								$file_content_applicant=unpack('H*', file_get_contents($photo_upload_path_age_proof_applicant));
 								
 								$file_content_groom=unpack('H*', file_get_contents($photo_upload_path_age_proof_groom));
-								
 								
 								
 								// storing all informations in the array for later database operations
@@ -1479,6 +1467,10 @@ class BasicFormEntry extends NIC_Controller {
 								
 								if($insert_proposed_marriage_doc && $insert_bank_details_doc && $insert_address_proof_doc && $insert_family_income_doc && $insert_never_married_doc && $insert_age_doc)
 								{
+									
+									$this->load->model('common/status_model');
+									$this->status_model->update_declaration_status_query($applicant_id);
+							
 									$data['success_code'] = 1;
 							    	$data['success_message'] = "Success! Your form is now successfully submitted."; 
 									$this->load->view($this->config->item('theme') . 'form_entry/rp_basic_form_entry_success_view',$data);
@@ -1645,7 +1637,7 @@ class BasicFormEntry extends NIC_Controller {
 			if(count($blocks) > 0)
 			{
 				$block_select_box='';
-				$block_select_box .= '<option value="">---Please Select Block/Municipality/Corporation---</option>';
+				$block_select_box .= '<option value="">Select Blocks</option>';
 				foreach ($blocks as $block) {
 					$block_select_box .= '<option value="'.$block->schcd.'">'.$block->block_name.'</option>';	
 				}
@@ -1663,7 +1655,7 @@ class BasicFormEntry extends NIC_Controller {
 			if(count($cur_blocks) > 0)
 			{
 				$cur_block_select_box='';
-				$cur_block_select_box .= '<option value="">---Please Select Block/Municipality/Corporation---</option>';
+				$cur_block_select_box .= '<option value="">Select Blocks</option>';
 				foreach ($cur_blocks as $cur_block) {
 					$cur_block_select_box .= '<option value="'.$cur_block->schcd.'">'.$cur_block->block_name.'</option>';	
 				}

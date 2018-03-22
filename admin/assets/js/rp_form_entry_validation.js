@@ -44,8 +44,6 @@ j(document).ready(function(e) {
 		
 	$("#basic_form_entry").submit(function(e) {
         
-		
-		
 		var validation_flag = true;
 		
 		// retrieving value from html controls...
@@ -129,7 +127,7 @@ j(document).ready(function(e) {
 		var c_applicant_pin_code = $("#c_applicant_pin_code").val();	//c_applicant_pin_code
 		
 		var applicant_bank_name = $("#applicant_bank_name").val();	//applicant_bank_name
-				
+		
 		var applicant_account_no = $("#applicant_account_no").val();	//applicant_account_no
 		
 		var applicant_ifs_branch_code = $("#applicant_ifs_branch_code").val();	//applicant_ifs_branch_code
@@ -437,90 +435,103 @@ j(document).ready(function(e) {
 			
 		}
 			
-		else if($("#perm_curr_add_same").prop("checked") == false)
+		else if(c_applicant_village === "")
 		{
-			if(c_applicant_village === "")
-			{
-				$("#c_village_msg").html("Please enter your village name.");
-				$("#c_village_msg").show('slow');
-				$("#c_applicant_village").css("border-color","#F55");
+			$("#c_village_msg").html("Please enter your village name.");
+			$("#c_village_msg").show('slow');
+			$("#c_applicant_village").css("border-color","#F55");
 			
-				validation_flag = false;
-			}
-			else if(c_applicant_house_number === "")
-			{
-				$("#c_house_number_msg").html("Please enter your house number.");
-				$("#c_house_number_msg").show('slow');
-				$("#c_applicant_house_number").css("border-color","#F55");
-				
-				validation_flag = false;
-			}		
-			else if(c_applicant_street_name === "")
-			{
-				$("#c_applicant_street_name_msg").html("Please enter your street name.");
-				$("#c_applicant_street_name_msg").show('slow');
-				$("#c_applicant_street_name").css("border-color","#F55");
-				
-				validation_flag = false;
-			}
-			else if(c_applicant_post_office === "")
-			{
-				$("#c_applicant_post_office_msg").html("Please enter your post office name.");
-				$("#c_applicant_post_office_msg").show('slow');
-				$("#c_applicant_post_office").css("border-color","#F55");
-				
-				validation_flag = false;
-			}		
-			else if(c_applicant_police_station === "")
-			{
-				$("#c_applicant_police_station_msg").html("Please enter your police station name.");
-				$("#c_applicant_police_station_msg").show('slow');
-				$("#c_applicant_police_station").css("border-color","#F55");
+			validation_flag = false;
 			
-				validation_flag = false;
-			}		
-			else if(c_applicant_grmp_ward === "")
-			{
-				$("#c_applicant_grmp_ward_msg").html("Please enter your gram panchayat or ward name.");
-				$("#c_applicant_grmp_ward_msg").show('slow');
-				$("#c_applicant_grmp_ward").css("border-color","#F55");
-				
-				validation_flag = false;
-			}
-				
-			else if(c_applicant_district == '')
-			{
-		 		$("#c_applicant_district_msg").html("Please select your district.");
-			 	$("#c_applicant_district_msg").show('slow');
-			 	$("#c_applicant_district").css("border-color","#F55");
+		}		
+		else if(c_applicant_house_number === "")
+		{
+			$("#c_house_number_msg").html("Please enter your house number.");
+			$("#c_house_number_msg").show('slow');
+			$("#c_applicant_house_number").css("border-color","#F55");
 			
-			 	validation_flag = false;
-			}		
+			validation_flag = false;
+			
+		}		
+		else if(c_applicant_street_name === "")
+		{
+			$("#c_applicant_street_name_msg").html("Please enter your street name.");
+			$("#c_applicant_street_name_msg").show('slow');
+			$("#c_applicant_street_name").css("border-color","#F55");
+			
+			validation_flag = false;
+			
+		}		
+		else if(c_applicant_post_office === "")
+		{
+			$("#c_applicant_post_office_msg").html("Please enter your post office name.");
+			$("#c_applicant_post_office_msg").show('slow');
+			$("#c_applicant_post_office").css("border-color","#F55");
+			
+			validation_flag = false;
+			
+		}		
+		else if(c_applicant_police_station === "")
+		{
+			$("#c_applicant_police_station_msg").html("Please enter your police station name.");
+			$("#c_applicant_police_station_msg").show('slow');
+			$("#c_applicant_police_station").css("border-color","#F55");
+			
+			validation_flag = false;
+			
+		}		
+		else if(c_applicant_grmp_ward === "")
+		{
+			$("#c_applicant_grmp_ward_msg").html("Please enter your gram panchayat or ward name.");
+			$("#c_applicant_grmp_ward_msg").show('slow');
+			$("#c_applicant_grmp_ward").css("border-color","#F55");
+			
+			validation_flag = false;
+			
+		}
+
+		// else if(check == flase)
+		// {
+
+		// 	alert("aaaaaaaaaaa");
+		// }
+
+				
+		// else if(c_applicant_district == '')
+		// {
+		// 	$("#c_applicant_district_msg").html("Please select your district.");
+		// 	$("#c_applicant_district_msg").show('slow');
+		// 	$("#c_applicant_district").css("border-color","#F55");
+			
+		// 	validation_flag = false;
+			
+		// }		
+		// else if(c_applicant_bmc == '')
+		// {
+		// 	$("#c_applicant_bmc_msg").html("Please select your block / Muncipality / Corporation.");
+		// 	$("#c_applicant_bmc_msg").show('slow');
+		// 	$("#c_applicant_bmc").css("border-color","#F55");
+			
+		// 	validation_flag = false;
+			
+		// }		
+		else if(c_applicant_pin_code === "")
+		{
+			$("#c_applicant_pin_code_msg").html("Please enter your pin code.");
+			$("#c_applicant_pin_code_msg").show('slow');
+			$("#c_applicant_pin_code").css("border-color","#F55");
+			
+			validation_flag = false;
+			
+		}
 		
-			else if(c_applicant_bmc == '')
-			{
-			 	$("#c_applicant_bmc_msg").html("Please select your block / Muncipality / Corporation.");
-		 		$("#c_applicant_bmc_msg").show('slow');
-			 	$("#c_applicant_bmc").css("border-color","#F55");
-				
-			 	validation_flag = false;
+		else if(c_applicant_pin_code != "" && c_applicant_pin_code.length < 6)
+		{
+			$("#c_applicant_pin_code_msg").html("Pin code should be of 6 digits.");
+			$("#c_applicant_pin_code_msg").show('slow');
+			$("#c_applicant_pin_code").css("border-color","#F55");
 			
-			}		
-			else if(c_applicant_pin_code === "")
-			{
-				$("#c_applicant_pin_code_msg").html("Please enter your pin code.");
-				$("#c_applicant_pin_code_msg").show('slow');
-				$("#c_applicant_pin_code").css("border-color","#F55");
-			
-				validation_flag = false;
-			}
-			else if(c_applicant_pin_code != "" && c_applicant_pin_code.length < 6)
-			{
-				$("#c_applicant_pin_code_msg").html("Pin code should be of 6 digits.");
-				$("#c_applicant_pin_code_msg").show('slow');
-				$("#c_applicant_pin_code").css("border-color","#F55");
-				validation_flag = false;	
-			}
+			validation_flag = false;	
 		}
 		
 		else if(applicant_bank_name == '')
@@ -873,61 +884,45 @@ j(document).ready(function(e) {
 	  // code to copy permanent and current address on click of check box
 	  
 	  $("#perm_curr_add_same").click(function(e) {
-		  
+
+
+       // alert("aaaaa");
 		if($(this).prop("checked") == true)
 		{
+			//alert($("#applicant_bmc").val())
+			//alert($("#applicant_district").val())
+			// setting value for current address fields
 			
-			$("#c_applicant_village").attr('disabled', 'disabled');
+			$("#c_applicant_village").val($("#applicant_village").val());	// c_applicant's village
 			
-			$("#c_applicant_house_number").attr('disabled', 'disabled');
+			$("#c_applicant_house_number").val($("#applicant_house_number").val());
 	
-			$("#c_applicant_house_number").attr('disabled', 'disabled');
+			$("#c_applicant_house_number").val($("#applicant_house_number").val());	//c_applicant_house_number
 		
-			$("#c_applicant_street_name").attr('disabled', 'disabled');
+			$("#c_applicant_street_name").val($("#applicant_street_name").val());	//c_applicant_street_name
 		
-			$("#c_applicant_post_office").attr('disabled', 'disabled');
+			$("#c_applicant_post_office").val($("#applicant_post_office").val()); //c_applicant_post_office
 		
-			$("#c_applicant_police_station").attr('disabled', 'disabled');
+			$("#c_applicant_police_station").val($("#applicant_police_station").val()); //c_applicant_police_station
 		
-			$("#c_applicant_grmp_ward").attr('disabled', 'disabled');
+			$("#c_applicant_grmp_ward").val($("#applicant_grmp_ward").val()); //c_applicant_grmp_ward
 		
-			$("#c_applicant_district").attr('disabled', 'disabled');
+			$("#c_applicant_district").val($("#applicant_district").val()); // c_applicant_district
 		
-			$("#c_applicant_bmc").attr('disabled', 'disabled');
-			
-			$("#c_applicant_pin_code").attr('disabled', 'disabled');
-		}
-		else
-		{
-			
-			
-			$("#c_applicant_village").removeAttr('disabled')
-			
-			$("#c_applicant_house_number").removeAttr('disabled')
-	
-			$("#c_applicant_house_number").removeAttr('disabled')
-		
-			$("#c_applicant_street_name").removeAttr('disabled')
-		
-			$("#c_applicant_post_office").removeAttr('disabled')
-		
-			$("#c_applicant_police_station").removeAttr('disabled')
-		
-			$("#c_applicant_grmp_ward").removeAttr('disabled')
-		
-			$("#c_applicant_district").removeAttr('disabled')
-		
-			$("#c_applicant_bmc").removeAttr('disabled')
-			
-			$("#c_applicant_pin_code").removeAttr('disabled')
-			
-			/*
+			//$("#c_applicant_bmc").val($("#applicant_bmc").val());	
 
 			//--------------c_applicant_bmc--------------------------
 			
 			$('#c_applicant_district').attr('disabled', 'disabled');
 
-			$('#c_applicant_bmc').attr('disabled', 'disabled');
+			$("#c_bmc_hid").val($("#applicant_bmc :selected").text());
+
+			var y = document.getElementById("c_bmc_hid");
+				 y.type= "text";
+
+			$('#c_bmc_hid').attr('readOnly', 'readOnly');
+
+			$('#c_applicant_bmc').css('display','none');
 
 			//-----------------------------------------------------------
 		
@@ -953,11 +948,14 @@ j(document).ready(function(e) {
 		
 			$("#c_applicant_district").removeAttr("disabled");
 
+			var z = document.getElementById("c_bmc_hid");
+				 z.type= "hidden";
+
 		    $('#c_applicant_bmc').css('display','block');
 
 		    $("#c_applicant_bmc").val('');
 		
-			$("#c_applicant_pin_code").val('');*/
+			$("#c_applicant_pin_code").val('');
 		}
     });
 

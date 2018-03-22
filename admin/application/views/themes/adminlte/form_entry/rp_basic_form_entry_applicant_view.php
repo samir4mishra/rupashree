@@ -493,8 +493,7 @@
             </div>
             
 			<div class="box-header with-border">
-              <h2 class="box-title"><strong>Current Address (Please tick if Current Address&nbsp;Same as Permanent Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="checkbox" name="perm_curr_add_same" id="perm_curr_add_same" autocomplete="off" value="1">&nbsp;)</strong></h2>
+              <h2 class="box-title"><strong>Current Address (&nbsp;Same as Permanent Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="perm_curr_add_same" id="perm_curr_add_same" autocomplete="off" value="1">&nbsp;)</strong></h2>
             </div>
             
             <div class="box-body">
@@ -588,8 +587,7 @@
                         	<label>Pin Code&nbsp;<font color="red">*</font></label>
                         </div>
                     </div>
-
-                  
+                    
         	      <div class="row">
             	    <div class="col-sm-4">
                  	<select class="form-control" name="c_applicant_district" id="c_applicant_district">
@@ -608,6 +606,7 @@
 					<select class="form-control" name="c_applicant_bmc" id="c_applicant_bmc" style="display: block">
                     	<option value="">---Please Select Block/Municipality/Corporation---</option>
 					</select>
+                    <input type="hidden" id="c_bmc_hid" name="c_bmc_hid" class="form-control" >
                     <span class="error_info" id="c_applicant_bmc_msg"></span>
                     <font color="red"><?php echo form_error('c_applicant_bmc'); ?></font>
                 </div>
@@ -649,7 +648,7 @@
 	                 		<select class="form-control" name="applicant_bank_name" id="applicant_bank_name">
     	                		<option value="">---Please Select Bank Name---</option>
                                 <?php foreach ($bank_names as $bank_name) { ?>
-                                <option value="<?php echo $bank_name->code."*".$bank_name->account_length; ?>"><?php echo $bank_name->description; ?></option>
+                                <option value="<?php echo $bank_name->code; ?>"><?php echo $bank_name->description; ?></option>
                                 <?php } ?>
 							</select>
         	        	    <span class="error_info" id="applicant_bank_name_msg"></span>
@@ -748,7 +747,6 @@
                         success:function(data) {
                             //alert(data);
                             $('#applicant_bmc').html(data);
-							$('#c_applicant_bmc').html(data);
                         }
                     });
                 }else{
@@ -786,31 +784,23 @@
 <script type="text/javascript">
         $(document).ready(function() {
             $('#applicant_bank_name').on('change', function() {
-					
-                	
-					var bank_name = $(this).val();
-					
-               		var val = bank_name.split("*");
-					
-					if(val[0] != '') {
+
+                var bank_name = $(this).val();
+               
+                    if(bank_name) {
                     //alert(bank_name);
                     $.ajax({
                         url: "./form_entry/BasicFormEntry/get_ifsc",
                         type: "GET",
-                        data: {'bank_id' : val[0]},
+                        data: {'bank_id' : bank_name},
                         dataType: "json",
                         success:function(data) {
                            // alert(data);
                             $('#applicant_ifsc_bank_code').val(data);
-							$("#applicant_account_no_msg").html("Account Number must not be less than "+val[1]+" digits");
-							$("#applicant_account_no_msg").show();
-							$("#applicant_account_no").attr("maxlength",val[1]);
                         }
                     });
-                }
-				else
-				{
-         			$("#applicant_account_no").attr("placeholder","Account Number");
+                }else{
+                    
                 }
 
             });

@@ -75,7 +75,7 @@ class Master_model extends CI_Model {
 
 	public function get_bank_query(){
 
-		$query = $this->db->select('code,description,account_length')->from('rp_bank_master')
+		$query = $this->db->select('code,description')->from('rp_bank_master')
        			 ->where("status = '1' order by description")->get();
 		return $query->result();
 		
@@ -100,4 +100,6 @@ class Master_model extends CI_Model {
 		$query = $this->db->get('rp_declaration_master');
 		return $query;
 	}
+	
+	
 }

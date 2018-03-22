@@ -44,7 +44,7 @@
     <section class="content">
 
 	<?php if($success_code == 1){?>
-    	<div class="alert alert-info">
+    	<div class="alert alert-success">
     <?php echo $success_message;?>
     	</div>
     <?php } ?>

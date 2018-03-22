@@ -9,7 +9,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li >
-              <a href="./dashboard/dashboard">
+              <a href="./dashboard">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
         </li>
@@ -17,7 +17,7 @@
        <li class="treeview">
               <a href="#">
                   <i class="fa fa-edit"></i>
-                  <span>Registration Management</span>
+                  <span>Online Entry For 2018-19</span>
                   <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
@@ -28,7 +28,19 @@
               </ul>
         </li> 
 	        
-	       
+	     <li class="treeview">
+              <a href="#">
+                  <i class="fa fa-edit"></i>
+                  <span>Applications</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="./beneficiary/Beneficiary_list"><i class="fa fa-angle-double-right"></i>List of Applicants</a></li>
+                  
+                  <!--<li><a href="./form_entry/photoupload"><i class="fa fa-angle-double-right"></i>Photo Upload</a></li>
+                  <li><a href="./form_entry/declarationupload"><i class="fa fa-angle-double-right"></i>Declaration Upload</a></li>-->
+              </ul>
+        </li>  
         
         
         	

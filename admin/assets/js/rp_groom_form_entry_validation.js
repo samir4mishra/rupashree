@@ -717,13 +717,23 @@ j(document).ready(function(e) {
 		
 			$("#c_groom_district").val($("#groom_district").val()); // c_groom_district
 		
-			alert($("#groom_bmc").val());
-			$("#c_groom_bmc").val($("#groom_bmc").val());	//c_groom_bmc
+			//$("#c_groom_bmc").val($("#groom_bmc").val());	//c_groom_bmc
 
 			//---------------c_groom_bmc-------------------------------//
 
 			$('#c_groom_district').attr('disabled', 'disabled');
-			$('#c_groom_bmc').attr('disabled', 'disabled');
+
+			$("#c_groom_bmc_hid").val($("#groom_bmc :selected").text());
+
+			var y = document.getElementById("c_groom_bmc_hid");
+				 y.type= "text";
+
+			$('#c_groom_bmc_hid').attr('readOnly', 'readOnly');
+
+			$('#c_groom_bmc').css('display','none');
+
+
+		
 			$("#c_groom_pin_code").val($("#groom_pin_code").val());	//c_groom_pin_code			
 		}
 		else
@@ -746,9 +756,15 @@ j(document).ready(function(e) {
 
 			$("#c_groom_district").removeAttr("disabled");
 
+			var z = document.getElementById("c_groom_bmc_hid");
+				 z.type= "hidden";
+
 		    $('#c_groom_bmc').css('display','block');
 
 		    $("#c_groom_bmc").val('');
+		
+			//$("#c_groom_bmc").val('');
+		
 			$("#c_groom_pin_code").val('');
 		}
     });
