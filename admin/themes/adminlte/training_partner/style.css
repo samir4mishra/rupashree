@@ -1,0 +1,44 @@
+.list-group-item {
+    padding: 6px 15px;
+}
+.list-group-item>.badge-danger{
+	background-color: #dd4b39;
+}
+.list-group-item>.badge-success{
+	background-color: #5cb85c;
+}
+.partner_table ul li{
+	font-size:14px;
+}
+.loader_con{
+	text-align:center;
+}
+.panel-body h3{
+	margin:0px;
+}
+
+.loader {
+  border: 8px solid #EEE;
+  border-radius: 50%;
+  border-top: 8px solid red;
+  border-bottom: 8px solid blue;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+  text-align:center;
+  margin:0 auto;
+  
+}
+.has-error .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single{
+	border-color: #dd4b39;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
